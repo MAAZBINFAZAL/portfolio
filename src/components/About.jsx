@@ -48,6 +48,7 @@ export default function About() {
       <ul className="space-y-4 max-w-2xl mx-auto">
         {[
           "Scored 120/160 in Duolingo English Test (IELTS 6.5 equivalent)",
+          "Scored 120/160 in Duolingo English Test (IELTS 6.5 equivalent)",
           "Selected as Team Leader in academic projects",
           "Awarded state merit scholarship",
           "Led 50+ volunteers to prepare 500+ underprivileged students",
