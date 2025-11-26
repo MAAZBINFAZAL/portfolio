@@ -6,7 +6,8 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Education from "./components/Education";
 import WorkExperience from "./components/WorkExperience";
-import Certificates from "./components/Certificates"; // ✅ Import Certificates
+import Certificates from "./components/Certificates";
+import AwardsAndHonors from "./components/AwardsAndHonors"; // ✅ Import Awards & Honors
 
 export default function App() {
   return (
@@ -14,11 +15,12 @@ export default function App() {
       <div className="max-w-5xl mx-auto px-4">
         <Hero />
         <About />
-        <Education /> {/* ✅ Education now included */}
+        <AwardsAndHonors /> {/* ✅ New Awards & Honors section */}
+        <Education />
         <WorkExperience />
         <Skills />
         <Projects />
-        <Certificates /> {/* ✅ Certificates & Licenses section */}
+        <Certificates />
         <Contact />
 
         {/* Footer */}

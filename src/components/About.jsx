@@ -36,36 +36,13 @@ export default function About() {
       >
         Driven Electronic and AI Engineer with a passion for designing intelligent, scalable
         systems that seamlessly integrate hardware and software. Skilled in developing innovative 
-        solutions that leverage cutting-edge technologies, combining deep technical expertise with 
+        solutions that leverage cutting edge technologies, combining deep technical expertise with 
         strategic problem-solving to deliver impactful, high-performance applications. Experienced 
-        in building embedded systems, computer vision pipelines, AI/ML, FPGA/PLC automation, and robotics — 
+        in building embedded systems, computer vision pipelines, AI/ML, FPGA/PLC automation, and robotics 
         with a proven track record of leading teams, optimizing algorithms, and deploying AI-powered 
-        solutions for real-world impact. Looking ahead, my focus is on RISC-V architecture, VLSI design,
+        solutions for real world impact. Looking ahead, my focus is on Hybrid model optimization, RISC-V architecture, VLSI design,
         Large Language Models (LLMs), and the evolving landscape of Generative and Agentic AI.
       </motion.p>
-
-      {/* Timeline List */}
-      <ul className="space-y-4 max-w-2xl mx-auto">
-        {[
-          "Scored 120/160 in Duolingo English Test (IELTS 6.5 equivalent)",
-          "Selected as Team Leader in academic projects",
-          "Awarded state merit scholarship",
-          "Led 50+ volunteers to prepare 500+ underprivileged students",
-          "YOLO optimization research (paper under IEEE review)",
-        ].map((item, index) => (
-          <motion.li
-            key={index}
-            className="text-gray-300 bg-gray-800/50 px-4 py-3 rounded-lg shadow hover:shadow-indigo-500/30 transition"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            variants={fadeInUp}
-          >
-            {item}
-          </motion.li>
-        ))}
-      </ul>
 
       {/* Divider */}
       <motion.img
