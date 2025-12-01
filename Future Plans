@@ -1,0 +1,41 @@
+PHASE 1 — SEO & GOOGLE
+1. Add SEO meta tags
+2. Create robots.txt
+3. Create sitemap.xml
+4. Add canonical URL
+5. Setup Google Search Console + DNS verify
+6. Optimize page load speed
+
+PHASE 2 — MODERN UI
+7. Build modern landing page
+8. Add dark/light mode
+9. Add animations (Framer Motion)
+
+PHASE 3 — FEATURES
+10. Add contact form with email
+11. Add CV auto-download
+12. Add blog system
+13. Add admin panel (optional)
+
+PHASE 4 — EMAIL & IDENTITY
+14. Create custom email (info@domain)
+15. Configure SMTP / forwarding
+
+PHASE 5 — PERFORMANCE
+16. Compress images (WebP)
+17. Reduce bundle size
+18. Add service worker / PWA
+19. Add analytics
+20. Improve accessibility
+
+PHASE 6 — ENHANCEMENTS
+21. Add project case studies
+22. Add testimonials
+23. Add experience timeline
+24. Add certifications gallery
+25. Add project filters
+26. Add animated stats
+27. Add chatbot widget
+28. Improve global navigation
+29. Improve mobile responsiveness
+30. Optional: Migrate to Cloudflare Pages
