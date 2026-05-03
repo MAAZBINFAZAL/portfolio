@@ -47,21 +47,13 @@ export default function About() {
             📌 3 Journal + 2 Conference Publications
           </p>
         </div>
+
         <div className="p-5 rounded-xl bg-gray-800/40 border border-gray-700 shadow-xl backdrop-blur-md">
           <p className="text-lg font-semibold text-purple-300 text-center font-serif">
             📌 IEEE Xplore Indexed GCWOT’26 Conference Paper
           </p>
         </div>
       </motion.div>
-
-      <motion.p
-        className="text-gray-300 max-w-4xl mx-auto text-justify leading-relaxed tracking-wide mb-14 font-light text-lg font-serif"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        variants={fadeInUp}
-      >
 
       <motion.div
         className="max-w-3xl mx-auto mb-16"
@@ -115,7 +107,10 @@ export default function About() {
           <p>
             <strong>[C1]</strong> Maaz Bin Fazal, Muhammad Inam Ul Haq, S. Mehmood, S. Sheikh, Zeeshan, Muhammad Sohail,
             “Low Cost Real Time Fruit Quality Assessment and Sorting Using YOLOv8,” Proc. 8th GCWOT, IEEE Xplore indexed, Málaga, Spain, Feb. 2026.{" "}
-            <span onClick={handlePdfClick} className="text-blue-400 cursor-pointer underline hover:text-blue-300">
+            <span
+              onClick={handlePdfClick}
+              className="text-blue-400 cursor-pointer underline hover:text-blue-300"
+            >
               PDF
             </span>
           </p>
@@ -123,7 +118,10 @@ export default function About() {
           <p>
             <strong>[C2]</strong> Ahmad Raza, Abdul Basit, Zeeshan Ahmad Arfeen, Aliyu Hamza Sule, Maaz Bin Fazal,
             “Deepfake Detection Techniques: A Comprehensive Review of Deep Learning, Machine Learning, and Traditional Paradigms,” Preprint / Working Paper, 2025.{" "}
-            <span onClick={handlePdfClick} className="text-blue-400 cursor-pointer underline hover:text-blue-300">
+            <span
+              onClick={handlePdfClick}
+              className="text-blue-400 cursor-pointer underline hover:text-blue-300"
+            >
               PDF
             </span>
           </p>
@@ -144,7 +142,10 @@ export default function About() {
           <p>
             <strong>[J2]</strong> Muhammad Inam Ul Haq, Maaz Bin Fazal, Z. Arfeen,
             “Q-INTEL: Hybrid Quantum Classical Intelligence for Autonomous Engineering Systems,” Computer of Engineering, under first-round review, 2025.{" "}
-            <span onClick={handlePdfClick} className="text-blue-400 cursor-pointer underline hover:text-blue-300">
+            <span
+              onClick={handlePdfClick}
+              className="text-blue-400 cursor-pointer underline hover:text-blue-300"
+            >
               PDF
             </span>
           </p>
@@ -152,7 +153,10 @@ export default function About() {
           <p>
             <strong>[J3]</strong> Z. Arfeen, Muhammad Inam Ul Haq, Maaz Bin Fazal,
             “Trust Enhanced RISC-V IEEE-754 FPU: ECC, Redundancy, and Firewall Protected Execution for SweRV EH1,” Manuscript in progress, 2025.{" "}
-            <span onClick={handlePdfClick} className="text-blue-400 cursor-pointer underline hover:text-blue-300">
+            <span
+              onClick={handlePdfClick}
+              className="text-blue-400 cursor-pointer underline hover:text-blue-300"
+            >
               PDF
             </span>
           </p>
