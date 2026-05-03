@@ -2,63 +2,67 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FolderKanban } from "lucide-react";
 
-// 🔥 Correct image imports
 import fypImg from "../assets/fyp.jpg";
 import hackathonImg from "../assets/hackathon-banner.png";
 import plcImg from "../assets/plc.jpg";
 import vendingImg from "../assets/vending.png";
 import studentImg from "../assets/student.jpg";
 import autoImg from "../assets/auto.png";
-import contentImg from "../assets/content.png";   // ✅ FIXED Import
+import contentImg from "../assets/content.png";
 import divider from "../assets/divider.gif";
 
 const projects = [
   {
     title: "Roblox Styler Agent (ETH Global)",
-    desc: "AI-powered outfit generator integrated with Coral Protocol & Mistral AI.",
+    desc: "AI-powered multi-agent system for Roblox avatar styling using LLMs and Coral Protocol.",
     img: hackathonImg,
     repo: "https://github.com/Rushabh-Runwal/Roblox-Outfit-Marketplace-Agents",
     demo: "https://lablab.ai/event/internet-of-agents/roblox-marketplace-ai/roblox-marketplace-agent",
   },
   {
     title: "AI Content Payment Agent",
-    desc: "Agentic AI content wallet with real-time USDC micro-transactions on Arc.",
-    img: contentImg,          // ✅ FIXED
+    desc: "AI-powered blockchain platform enabling automated USDC micropayments using agent workflows.",
+    img: contentImg,
     repo: "https://github.com/cuervocoder/arc-pay-new",
     demo: "https://arc-agent-pay.lovable.app/",
   },
   {
     title: "Student Performance Predictor",
-    desc: "ML model with web demo for early detection of at-risk students.",
+    desc: "Machine learning web system for early detection of academically at-risk students.",
     img: studentImg,
-    report: "https://drive.google.com/file/d/1ECDrtKkW0nQosUWe1i6EVG9sv7e6ReES/view?usp=sharing",
-    demo: "https://ai-gpa-predictor.onrender.com/",
     repo: "https://github.com/MAAZBINFAZAL/AI-GPA-Predictor",
+    demo: "https://ai-gpa-predictor.onrender.com/",
   },
   {
     title: "Home Automation System",
-    desc: "IoT-based smart home setup using Arduino, Wi-Fi monitoring, real-time sensors, and mobile app control.",
+    desc: "IoT-based smart home automation using Arduino with real-time monitoring and control.",
     img: autoImg,
     report: "https://drive.google.com/file/d/1NV5BGY3g_vNZIjngKKXBd6BCwd0D3wbW/view?usp=drivesdk",
   },
+
+  // ✅ KEEP PLC SAME
   {
     title: "PLC Industrial Automation",
-    desc: "Siemens & Fatek PLC projects (water tank, motor control, traffic signal).",
+    desc: "Siemens & Fatek PLC projects including water tank control, motor automation, and traffic signal systems.",
     img: plcImg,
     repo: "https://drive.google.com/file/d/1rznTFA4-DYqmqUUi61ngAX1QEqGN94sH/view?usp=sharing",
     demo: "https://drive.google.com/file/d/1P1C_voTikqKO5c83VySFzxTOL_PuHgZf/view?usp=drivesdk",
   },
+
   {
-    title: "Vending Machine (Verilog)",
-    desc: "Verilog FSM for vending machine synthesized to Spartan XC400.",
+    title: "Vending Machine (Verilog FSM)",
+    desc: "FPGA-based vending machine using Verilog FSM with coin detection and automated product dispensing.",
     img: vendingImg,
     report: "https://drive.google.com/file/d/1MUcOKalmxKPxUX2KSLzeLqE8pO48Oo1t/view?usp=sharing",
   },
+
+  // ✅ FIXED FYP
   {
-    title: "Fruit Quality Detection (FYP)",
-    desc: "YOLOv8-based fruit quality detection & conveyor sorting (90%+ mAP). Research work — code on request.",
+    title: "Fruit Quality Detection & Sorting (Final Year Project)",
+    desc: "YOLOv8-based real-time fruit quality detection and conveyor sorting system achieving 90%+ mAP.",
     img: fypImg,
-    locked: "https://drive.google.com/file/d/1l7DIGvR88hxMoFmObeTmAsxi1EJdHD1i/view?usp=drivesdk",
+    repo: "https://github.com/your-username/fyp-repo", // 🔥 replace later
+    demo: "/videos/fyp-demo.mp4", // 🔥 local video
   },
 ];
 
@@ -70,21 +74,17 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-16">
-      {/* Heading */}
       <motion.h2
         className="text-3xl md:text-4xl font-extrabold text-center flex items-center justify-center gap-2 mb-10
                    bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
                    bg-clip-text text-transparent bg-200% animate-gradient"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
         variants={fadeInUp}
       >
         <FolderKanban size={32} className="text-indigo-400" /> Projects
       </motion.h2>
 
-      {/* Project Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {projects.map((p, index) => (
           <motion.div
@@ -92,20 +92,26 @@ export default function Projects() {
             className="bg-gray-800/50 rounded-lg overflow-hidden shadow hover:shadow-indigo-500/30 transition"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             variants={fadeInUp}
           >
-            {/* Image */}
+            {/* IMAGE OR VIDEO */}
             <div className="overflow-hidden">
-              <img
-                src={p.img}
-                alt={p.title}
-                className="w-full h-44 object-cover transform transition-transform duration-500 hover:scale-110"
-              />
+              {p.demo && p.demo.endsWith(".mp4") ? (
+                <video
+                  src={p.demo}
+                  controls
+                  className="w-full h-44 object-cover"
+                />
+              ) : (
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full h-44 object-cover hover:scale-110 transition"
+                />
+              )}
             </div>
 
-            {/* Info */}
             <div className="p-4">
               <h3 className="text-lg font-semibold text-white">{p.title}</h3>
               <p className="text-gray-300 mt-2">{p.desc}</p>
@@ -116,39 +122,29 @@ export default function Projects() {
                     href={p.repo}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-3 py-1 bg-indigo-600 rounded text-white font-medium hover:bg-indigo-500 transition"
+                    className="px-3 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-500"
                   >
                     Code
                   </a>
                 )}
-                {p.demo && (
+                {p.demo && !p.demo.endsWith(".mp4") && (
                   <a
                     href={p.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-3 py-1 border border-indigo-400 text-indigo-400 rounded font-medium hover:bg-indigo-500 hover:text-white transition"
+                    className="px-3 py-1 border border-indigo-400 text-indigo-400 rounded hover:bg-indigo-500 hover:text-white"
                   >
                     Demo
                   </a>
                 )}
-                {p.report && (
+                {p.report && !p.repo && !p.demo && (
                   <a
                     href={p.report}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-3 py-1 border border-green-400 text-green-400 rounded font-medium hover:bg-green-500 hover:text-white transition"
+                    className="px-3 py-1 border border-green-400 text-green-400 rounded hover:bg-green-500 hover:text-white"
                   >
                     Report
-                  </a>
-                )}
-                {p.locked && (
-                  <a
-                    href={p.locked}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-1 border border-yellow-400 text-yellow-400 rounded font-medium hover:bg-yellow-500 hover:text-white transition"
-                  >
-                    🔒 Code & Demo (on request)
                   </a>
                 )}
               </div>
@@ -157,15 +153,12 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Divider */}
       <motion.img
         src={divider}
         alt="divider"
         className="w-full max-w-2xl mx-auto mt-12"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 1.2 }}
         variants={fadeInUp}
       />
     </section>
