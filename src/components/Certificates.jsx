@@ -9,7 +9,7 @@ import ep from "../assets/ep.png";
 import meta from "../assets/meta.png";
 import uc from "../assets/uc.png";
 import merit from "../assets/merit.png";
-import cs50 from "../assets/CS50.pdf";
+import cs50 from "../assets/cs50.jpg";
 
 export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -20,18 +20,6 @@ export default function Certificates() {
   };
 
   const certificates = [
-    {
-      title: "Certificate of Achievement",
-      event: "Harvard CS50x Puzzle Day 2026 — Perfect Score 10/10",
-      date: "2026",
-      img: cs50,
-      isPdf: true,
-    },
-    {
-      title: "Merit Scholarship",
-      event: "The Islamia University of Bahawalpur",
-      img: merit,
-    },
     {
       title: "Certificate of Completion",
       event: "The INTERNET OF AGENTS HACKATHON @ SOLANA SKYLINE",
@@ -63,6 +51,19 @@ export default function Certificates() {
       event: "Calico Coding Challenge — UC Berkeley",
       img: uc,
     },
+
+    // ✅ ADDED AT LAST
+    {
+      title: "Certificate of Achievement",
+      event: "Harvard CS50x Puzzle Day 2026 — Perfect Score 10/10",
+      date: "2026",
+      img: cs50,
+    },
+    {
+      title: "Merit Scholarship",
+      event: "The Islamia University of Bahawalpur",
+      img: merit,
+    },
   ];
 
   return (
@@ -90,23 +91,13 @@ export default function Certificates() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
             variants={fadeInUp}
-            onClick={() => {
-              if (!cert.isPdf) setSelectedCert(cert.img);
-            }}
+            onClick={() => setSelectedCert(cert.img)}
           >
-            {cert.isPdf ? (
-              <iframe
-                src={cert.img}
-                title={cert.title}
-                className="w-full h-[500px] bg-black"
-              />
-            ) : (
-              <img
-                src={cert.img}
-                alt={cert.title}
-                className="w-full object-contain max-h-[500px] bg-black"
-              />
-            )}
+            <img
+              src={cert.img}
+              alt={cert.title}
+              className="w-full object-contain max-h-[500px] bg-black"
+            />
 
             <div className="p-4">
               <h3 className="text-lg font-semibold text-white">{cert.title}</h3>
@@ -114,17 +105,6 @@ export default function Certificates() {
 
               {cert.date && (
                 <p className="text-sm text-gray-400">{cert.date}</p>
-              )}
-
-              {cert.isPdf && (
-                <a
-                  href={cert.img}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block mt-3 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-500 transition"
-                >
-                  Open Certificate
-                </a>
               )}
 
               {cert.verify && (
