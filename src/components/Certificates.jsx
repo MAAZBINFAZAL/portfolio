@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Award } from "lucide-react"; // 🏅 Icon
+import { Award } from "lucide-react";
 import divider from "../assets/divider.gif";
-import certImg from "../assets/certificate.png"; // ✅ renamed properly
+import certImg from "../assets/certificate.png";
+import achImg from "../assets/ach.png";
+
+import ep from "../assets/ep.png";
+import meta from "../assets/meta.png";
+import uc from "../assets/uc.png";
+import merit from "../assets/merit.png";
+import cs50 from "../assets/CS50.pdf";
 
 export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -14,17 +21,52 @@ export default function Certificates() {
 
   const certificates = [
     {
+      title: "Certificate of Achievement",
+      event: "Harvard CS50x Puzzle Day 2026 — Perfect Score 10/10",
+      date: "2026",
+      img: cs50,
+      isPdf: true,
+    },
+    {
+      title: "Merit Scholarship",
+      event: "The Islamia University of Bahawalpur",
+      img: merit,
+    },
+    {
       title: "Certificate of Completion",
-      event: "The INTERNET OF AGENTS HACKATHON @SOLANA SKYLINE",
+      event: "The INTERNET OF AGENTS HACKATHON @ SOLANA SKYLINE",
       date: "Sep 14 – 21, 2025",
       img: certImg,
       verify: "https://lablab.ai/u/@maaz_bin_fazal90/cmg2mb9uf003s9g0srtwxmm4d",
+    },
+    {
+      title: "Certificate of Completion",
+      event: "AI Agents on Arc with USDC",
+      date: "Oct 27 – Nov 8, 2025",
+      img: achImg,
+      verify: "https://lablab.ai/u/@maaz_bin_fazal90/cmht37ox8004mb50s5iwc40yy",
+    },
+    {
+      title: "English Proficiency",
+      event: "Duolingo English Test",
+      date: "Test taken: September 3, 2025",
+      img: ep,
+      verify: "https://certs.duolingo.com/geeml6l9vrh8f9dc",
+    },
+    {
+      title: "Certificate of Recognition",
+      event: "Meta Hacker Cup",
+      img: meta,
+    },
+    {
+      title: "Certificate of Recognition",
+      event: "Calico Coding Challenge — UC Berkeley",
+      img: uc,
     },
   ];
 
   return (
     <section id="certificates" className="py-16">
-      {/* Heading */}
       <motion.h2
         className="text-3xl md:text-4xl font-extrabold text-center flex items-center justify-center gap-2 mb-10
                    bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
@@ -38,7 +80,6 @@ export default function Certificates() {
         <Award size={32} className="text-indigo-400" /> Certificates & Licenses
       </motion.h2>
 
-      {/* Certificates Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {certificates.map((cert, index) => (
           <motion.div
@@ -47,33 +88,60 @@ export default function Certificates() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
             variants={fadeInUp}
-            onClick={() => setSelectedCert(cert.img)}
+            onClick={() => {
+              if (!cert.isPdf) setSelectedCert(cert.img);
+            }}
           >
-            <img
-              src={cert.img}
-              alt={cert.title}
-              className="w-full object-contain max-h-[500px] bg-black"
-            />
+            {cert.isPdf ? (
+              <iframe
+                src={cert.img}
+                title={cert.title}
+                className="w-full h-[500px] bg-black"
+              />
+            ) : (
+              <img
+                src={cert.img}
+                alt={cert.title}
+                className="w-full object-contain max-h-[500px] bg-black"
+              />
+            )}
+
             <div className="p-4">
               <h3 className="text-lg font-semibold text-white">{cert.title}</h3>
               <p className="text-indigo-300">{cert.event}</p>
-              <p className="text-sm text-gray-400">{cert.date}</p>
-              <a
-                href={cert.verify}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block mt-3 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-500 transition"
-              >
-                Verify Certificate
-              </a>
+
+              {cert.date && (
+                <p className="text-sm text-gray-400">{cert.date}</p>
+              )}
+
+              {cert.isPdf && (
+                <a
+                  href={cert.img}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block mt-3 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-500 transition"
+                >
+                  Open Certificate
+                </a>
+              )}
+
+              {cert.verify && (
+                <a
+                  href={cert.verify}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block mt-3 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-500 transition"
+                >
+                  Verify Certificate
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Modal Popup */}
       {selectedCert && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -87,7 +155,6 @@ export default function Certificates() {
         </div>
       )}
 
-      {/* Divider */}
       <motion.img
         src={divider}
         alt="divider"

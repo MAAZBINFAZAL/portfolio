@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import toast, { Toaster } from "react-hot-toast"; 
-import { CheckCircle } from "lucide-react"; 
+import toast, { Toaster } from "react-hot-toast";
+import { CheckCircle } from "lucide-react";
 import divider from "../assets/divider.gif";
+import qr from "../assets/qr.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -12,6 +13,7 @@ const fadeInUp = {
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showWeChatQR, setShowWeChatQR] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +53,6 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-16">
-      {/* Toast Notifications */}
       <Toaster position="top-right" reverseOrder={false} />
 
       {/* Heading */}
@@ -80,7 +81,7 @@ export default function Contact() {
         Let’s collaborate on your next project 🚀
       </motion.p>
 
-      {/* Social Badges */}
+      {/* Social Icons */}
       <motion.div
         className="flex flex-wrap justify-center gap-4"
         initial="hidden"
@@ -89,8 +90,16 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         variants={fadeInUp}
       >
-        <a href="mailto:engr.maazbinfazal.ee@gmail.com">
-          <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
+        {/* Gmail (forced) */}
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=engrmaazbinfazal@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img 
+            src="https://img.shields.io/badge/Email-0A66C2?style=for-the-badge&logo=gmail&logoColor=white" 
+            alt="Email"
+          />
         </a>
 
         <a href="https://www.linkedin.com/in/maazbinfazal/" target="_blank" rel="noreferrer">
@@ -120,6 +129,18 @@ export default function Contact() {
         <a href="https://www.google.com/maps/place/Islamabad,+Islamabad+Capital+Territory,+Pakistan/" target="_blank" rel="noreferrer">
           <img src="https://img.shields.io/badge/Location-Pakistan-34a853?style=for-the-badge&logo=google-maps&logoColor=white" alt="Location" />
         </a>
+
+        {/* WeChat */}
+        <button
+          type="button"
+          onClick={() => setShowWeChatQR(true)}
+          className="focus:outline-none"
+        >
+          <img
+            src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white"
+            alt="WeChat"
+          />
+        </button>
       </motion.div>
 
       {/* Contact Form */}
@@ -137,28 +158,16 @@ export default function Contact() {
           <input type="text" name="subject" placeholder="Subject" className="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
           <textarea name="message" rows="4" placeholder="Your Message" className="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
 
-          {/* Button with loading spinner */}
           <button
             type="submit"
             disabled={loading}
             className={`w-full py-3 rounded text-white font-medium transition transform active:scale-95
-                       ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.7)]"}`}
+              ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.7)]"}`}
           >
-            {loading ? (
-              <span className="flex justify-center items-center gap-2">
-                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-                </svg>
-                Sending...
-              </span>
-            ) : (
-              "Send Message"
-            )}
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
 
-        {/* Success Confirmation */}
         {sent && (
           <motion.div
             className="mt-6 flex items-center justify-center gap-2 text-green-400 font-medium"
@@ -182,6 +191,16 @@ export default function Contact() {
         transition={{ duration: 1.2 }}
         variants={fadeInUp}
       />
+
+      {/* WeChat QR */}
+      {showWeChatQR && (
+        <motion.div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="bg-gray-900 p-6 rounded-lg text-center">
+            <button onClick={() => setShowWeChatQR(false)} className="text-white text-2xl">×</button>
+            <img src={qr} alt="QR" className="mx-auto w-64 h-64" />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }

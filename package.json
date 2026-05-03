@@ -1,5 +1,6 @@
 {
-  "name": "my-portfolio",
+  "name": "portfolio",
+  "homepage": "https://maazbinfazal.engineer",
   "private": true,
   "version": "0.0.0",
   "type": "module",

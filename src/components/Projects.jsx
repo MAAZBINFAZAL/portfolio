@@ -1,11 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FolderKanban } from "lucide-react"; // 📂 Icon for Projects
+import { FolderKanban } from "lucide-react";
+
+// 🔥 Correct image imports
 import fypImg from "../assets/fyp.jpg";
 import hackathonImg from "../assets/hackathon-banner.png";
 import plcImg from "../assets/plc.jpg";
 import vendingImg from "../assets/vending.png";
 import studentImg from "../assets/student.jpg";
+import autoImg from "../assets/auto.png";
+import contentImg from "../assets/content.png";   // ✅ FIXED Import
 import divider from "../assets/divider.gif";
 
 const projects = [
@@ -17,6 +21,13 @@ const projects = [
     demo: "https://lablab.ai/event/internet-of-agents/roblox-marketplace-ai/roblox-marketplace-agent",
   },
   {
+    title: "AI Content Payment Agent",
+    desc: "Agentic AI content wallet with real-time USDC micro-transactions on Arc.",
+    img: contentImg,          // ✅ FIXED
+    repo: "https://github.com/cuervocoder/arc-pay-new",
+    demo: "https://arc-agent-pay.lovable.app/",
+  },
+  {
     title: "Student Performance Predictor",
     desc: "ML model with web demo for early detection of at-risk students.",
     img: studentImg,
@@ -25,12 +36,11 @@ const projects = [
     repo: "https://github.com/MAAZBINFAZAL/AI-GPA-Predictor",
   },
   {
-  title: "Home Automation System",
-  desc: "IoT-based smart home setup using Arduino and mobile app with real-time monitoring, Wi-Fi control, and energy-     efficient automation.",
-  img: autoImg,  // ensure import is added!
-  report: "https://drive.google.com/file/d/1NV5BGY3g_vNZIjngKKXBd6BCwd0D3wbW/view?usp=drivesdk",
-},
-
+    title: "Home Automation System",
+    desc: "IoT-based smart home setup using Arduino, Wi-Fi monitoring, real-time sensors, and mobile app control.",
+    img: autoImg,
+    report: "https://drive.google.com/file/d/1NV5BGY3g_vNZIjngKKXBd6BCwd0D3wbW/view?usp=drivesdk",
+  },
   {
     title: "PLC Industrial Automation",
     desc: "Siemens & Fatek PLC projects (water tank, motor control, traffic signal).",
@@ -42,11 +52,11 @@ const projects = [
     title: "Vending Machine (Verilog)",
     desc: "Verilog FSM for vending machine synthesized to Spartan XC400.",
     img: vendingImg,
-    report: "https://drive.google.com/file/d/1MUcOKalmxKPxUX2KSLzeLqE8pO48Oo1t/view?usp=sharing", // renamed to Report
+    report: "https://drive.google.com/file/d/1MUcOKalmxKPxUX2KSLzeLqE8pO48Oo1t/view?usp=sharing",
   },
   {
     title: "Fruit Quality Detection (FYP)",
-    desc: "YOLOv8-based real-time fruit quality detection & conveyor sorting (90%+ mAP). Research work — code and demo available on request.",
+    desc: "YOLOv8-based fruit quality detection & conveyor sorting (90%+ mAP). Research work — code on request.",
     img: fypImg,
     locked: "https://drive.google.com/file/d/1l7DIGvR88hxMoFmObeTmAsxi1EJdHD1i/view?usp=drivesdk",
   },
@@ -60,7 +70,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-16">
-      {/* Gradient Animated Heading with Icon */}
+      {/* Heading */}
       <motion.h2
         className="text-3xl md:text-4xl font-extrabold text-center flex items-center justify-center gap-2 mb-10
                    bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
@@ -74,7 +84,7 @@ export default function Projects() {
         <FolderKanban size={32} className="text-indigo-400" /> Projects
       </motion.h2>
 
-      {/* Projects Grid */}
+      {/* Project Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {projects.map((p, index) => (
           <motion.div
@@ -86,7 +96,7 @@ export default function Projects() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             variants={fadeInUp}
           >
-            {/* Image with hover zoom */}
+            {/* Image */}
             <div className="overflow-hidden">
               <img
                 src={p.img}
@@ -95,12 +105,12 @@ export default function Projects() {
               />
             </div>
 
-            {/* Content */}
+            {/* Info */}
             <div className="p-4">
               <h3 className="text-lg font-semibold text-white">{p.title}</h3>
               <p className="text-gray-300 mt-2">{p.desc}</p>
+
               <div className="mt-4 flex gap-2 flex-wrap">
-                {/* Roblox, PLC, Student Predictor => normal Code/Demo */}
                 {p.repo && (
                   <a
                     href={p.repo}
@@ -131,8 +141,6 @@ export default function Projects() {
                     Report
                   </a>
                 )}
-
-                {/* FYP special case */}
                 {p.locked && (
                   <a
                     href={p.locked}
