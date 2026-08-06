@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
 import { CheckCircle } from "lucide-react";
 import divider from "../assets/divider.gif";
-import qr from "../assets/qr.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -13,7 +12,6 @@ const fadeInUp = {
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
-  const [showWeChatQR, setShowWeChatQR] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -130,17 +128,6 @@ export default function Contact() {
           <img src="https://img.shields.io/badge/Location-Pakistan-34a853?style=for-the-badge&logo=google-maps&logoColor=white" alt="Location" />
         </a>
 
-        {/* WeChat */}
-        <button
-          type="button"
-          onClick={() => setShowWeChatQR(true)}
-          className="focus:outline-none"
-        >
-          <img
-            src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white"
-            alt="WeChat"
-          />
-        </button>
       </motion.div>
 
       {/* Contact Form */}
@@ -191,16 +178,6 @@ export default function Contact() {
         transition={{ duration: 1.2 }}
         variants={fadeInUp}
       />
-
-      {/* WeChat QR */}
-      {showWeChatQR && (
-        <motion.div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-          <div className="bg-gray-900 p-6 rounded-lg text-center">
-            <button onClick={() => setShowWeChatQR(false)} className="text-white text-2xl">×</button>
-            <img src={qr} alt="QR" className="mx-auto w-64 h-64" />
-          </div>
-        </motion.div>
-      )}
     </section>
   );
 }

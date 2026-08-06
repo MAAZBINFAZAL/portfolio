@@ -71,7 +71,6 @@ export default function About() {
           {[
             "Winner — Harvard CS50x Puzzle Day 2026, Perfect Score 10/10",
             "Section Leader — Stanford Code in Place 2026",
-            "Top 75 Globally — UC Berkeley Coding Challenge",
             "Meta Worldwide Algorithmic Programming Contest Recognition",
             "Merit Scholarship — Undergraduate Studies",
             "Duolingo English Test: 120/160, CEFR B2",
@@ -117,7 +116,7 @@ export default function About() {
 
           <p>
             <strong>[C2]</strong> Ahmad Raza, Abdul Basit, Zeeshan Ahmad Arfeen, Aliyu Hamza Sule, Maaz Bin Fazal,
-            “Deepfake Detection Techniques: A Comprehensive Review of Deep Learning, Machine Learning, and Traditional Paradigms,” Preprint / Working Paper, 2025.{" "}
+            “Detection Techniques: A Comprehensive Review of Deep Learning, Machine Learning, and Traditional Paradigms,” Preprint / Working Paper, 2025.{" "}
             <span
               onClick={handlePdfClick}
               className="text-blue-400 cursor-pointer underline hover:text-blue-300"
@@ -141,7 +140,7 @@ export default function About() {
 
           <p>
             <strong>[J2]</strong> Muhammad Inam Ul Haq, Maaz Bin Fazal, Z. Arfeen,
-            “Q-INTEL: Hybrid Quantum Classical Intelligence for Autonomous Engineering Systems,” Computer of Engineering, under first-round review, 2025.{" "}
+            “Q-INTEL: Hybrid Classical Intelligence framework for Engineering Systems,” Computer of Engineering, under first-round review, 2025.{" "}
             <span
               onClick={handlePdfClick}
               className="text-blue-400 cursor-pointer underline hover:text-blue-300"
@@ -152,7 +151,7 @@ export default function About() {
 
           <p>
             <strong>[J3]</strong> Z. Arfeen, Muhammad Inam Ul Haq, Maaz Bin Fazal,
-            “Trust Enhanced RISC-V IEEE-754 FPU: ECC, Redundancy, and Firewall Protected Execution for SweRV EH1,” Manuscript in progress, 2025.{" "}
+            “Trust Enhanced RISC-V IEEE-754 FPU: ECC, Redundancy, and Protected Execution for SweRV EH1,” Manuscript in progress, 2025.{" "}
             <span
               onClick={handlePdfClick}
               className="text-blue-400 cursor-pointer underline hover:text-blue-300"
@@ -172,7 +171,7 @@ export default function About() {
         variants={fadeInUp}
       >
         I strive to contribute meaningful research and collaborate on innovations
-        that advance AI, embedded intelligence, microelectronics, and intelligent systems.
+        that advance power systems.
       </motion.p>
 
       <motion.img

@@ -21,10 +21,50 @@ export default function WorkExperience() {
         transition={{ duration: 0.6 }}
         variants={fadeInUp}
       >
-        💼 Experience & Leadership
+        💼 Research Experience & Leadership
       </motion.h2>
 
-      <div className="space-y-8 max-w-3xl mx-auto">
+      <div className="space-y-8 max-w-3xl mx-auto"> 
+	{/* 1. Arfeen Research Lab */}
+	<motion.div
+ 	 className="bg-gray-800/50 p-6 rounded-lg shadow hover:shadow-indigo-500/30 transition border border-indigo-500/20"
+	  variants={fadeInUp}
+	  initial="hidden"
+	  whileInView="visible"
+>
+	  <div className="flex items-center gap-3 mb-2">
+	    <FlaskConical className="text-indigo-400" size={22} />
+	
+	    <h3 className="text-xl font-semibold flex items-center">
+	      Research Assistant — Arfeen Research Lab
+
+	      <span className="ml-3 px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full border border-green-500/30">
+	        Current
+	      </span>
+	    </h3>
+	  </div>
+
+	  <p className="text-indigo-300 text-sm font-medium">
+	    The Islamia University of Bahawalpur, Pakistan
+	  </p>
+
+	  <p className="text-gray-400 text-sm">
+	    Jul. 2025 – Present
+	  </p>
+	
+	  <ul className="list-disc ml-6 mt-3 text-gray-300 space-y-2">
+	    <li>
+	      Conduct research on power systems, AC–DC power converters, and embedded engineering applications.
+	    </li>
+	    <li>
+	      Design, simulate, analyze, and validate energy-efficient power conversion systems for modern electronic applications.
+	    </li>
+	    <li>
+	      Contribute to technical documentation and scholarly publications in power electronics and intelligent energy systems.
+	    </li>
+	  </ul>
+	</motion.div>
+
 
         {/* 1. Stanford Code in Place */}
         <motion.div
@@ -43,7 +83,6 @@ export default function WorkExperience() {
           <ul className="list-disc ml-6 mt-3 text-gray-300 space-y-1">
             <li>Selected from a global applicant pool to teach Stanford’s CS106A (Python programming).</li>
             <li>Conduct weekly sessions, mentor students, and guide assignments.</li>
-            <li>Collaborate with educators across 80+ countries in a large-scale global teaching initiative.</li>
           </ul>
         </motion.div>
 
@@ -57,14 +96,14 @@ export default function WorkExperience() {
           <div className="flex items-center gap-3 mb-2">
             <Cpu className="text-indigo-400" size={22} />
             <h3 className="text-xl font-semibold">
-              Embedded Systems Research Assistant — CARE Lab
+              Embedded Systems Assistant [Training] — CARE Lab
             </h3>
           </div>
           <p className="text-gray-400 text-sm">Jun 2022 – May 2024</p>
           <ul className="list-disc ml-6 mt-3 text-gray-300 space-y-1">
-            <li>Conducted circuit analysis and embedded system prototyping for industrial applications.</li>
-            <li>Worked on microcontroller-based system design for electric mobility solutions.</li>
-            <li>Supported validation, testing, and deployment of real-world hardware systems.</li>
+            <li>Received hands on training in electronic circuit assembly, embedded system development, laboratory instrumentation.</li>
+            <li>Assisted in the design, testing, and troubleshooting of embedded hardware using sensors, power electronic components, and measurement equipment.</li>
+            <li>Gained practical experience operating laboratory instruments, including oscilloscopes, function generators, digital multimeters, regulated power supplies, and PCB prototyping tools for hardware validation. </li>
           </ul>
         </motion.div>
 

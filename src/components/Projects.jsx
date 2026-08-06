@@ -37,32 +37,27 @@ const projects = [
     title: "Home Automation System",
     desc: "IoT-based smart home automation using Arduino with real-time monitoring and control.",
     img: autoImg,
-    report: "https://drive.google.com/file/d/1NV5BGY3g_vNZIjngKKXBd6BCwd0D3wbW/view?usp=drivesdk",
+    github: "https://github.com/MAAZBINFAZAL/Home-Automation-Bluetooth-Arduino",
   },
-
-  // ✅ KEEP PLC SAME
   {
     title: "PLC Industrial Automation",
     desc: "Siemens & Fatek PLC projects including water tank control, motor automation, and traffic signal systems.",
     img: plcImg,
-    repo: "https://drive.google.com/file/d/1rznTFA4-DYqmqUUi61ngAX1QEqGN94sH/view?usp=sharing",
+    tasks: "https://drive.google.com/file/d/1rznTFA4-DYqmqUUi61ngAX1QEqGN94sH/view?usp=sharing",
     demo: "https://drive.google.com/file/d/1P1C_voTikqKO5c83VySFzxTOL_PuHgZf/view?usp=drivesdk",
   },
-
   {
     title: "Vending Machine (Verilog FSM)",
     desc: "FPGA-based vending machine using Verilog FSM with coin detection and automated product dispensing.",
     img: vendingImg,
-    report: "https://drive.google.com/file/d/1MUcOKalmxKPxUX2KSLzeLqE8pO48Oo1t/view?usp=sharing",
+    view: "https://drive.google.com/file/d/1MUcOKalmxKPxUX2KSLzeLqE8pO48Oo1t/view?usp=sharing",
   },
-
-  // ✅ FIXED FYP
   {
     title: "Fruit Quality Detection & Sorting (Final Year Project)",
     desc: "YOLOv8-based real-time fruit quality detection and conveyor sorting system achieving 90%+ mAP.",
     img: fypImg,
-    repo: "https://github.com/your-username/fyp-repo", // 🔥 replace later
-    demo: "/videos/fyp-demo.mp4", // 🔥 local video
+    repo: "https://github.com/your-username/fyp-repo",
+    demo: "/videos/fyp-demo.mp4",
   },
 ];
 
@@ -95,14 +90,9 @@ export default function Projects() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             variants={fadeInUp}
           >
-            {/* IMAGE OR VIDEO */}
             <div className="overflow-hidden">
               {p.demo && p.demo.endsWith(".mp4") ? (
-                <video
-                  src={p.demo}
-                  controls
-                  className="w-full h-44 object-cover"
-                />
+                <video src={p.demo} controls className="w-full h-44 object-cover" />
               ) : (
                 <img
                   src={p.img}
@@ -118,33 +108,32 @@ export default function Projects() {
 
               <div className="mt-4 flex gap-2 flex-wrap">
                 {p.repo && (
-                  <a
-                    href={p.repo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-500"
-                  >
+                  <a href={p.repo} target="_blank" rel="noreferrer" className="px-3 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-500">
                     Code
                   </a>
                 )}
+
+                {p.github && (
+                  <a href={p.github} target="_blank" rel="noreferrer" className="px-3 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-500">
+                    GitHub
+                  </a>
+                )}
+
+                {p.tasks && (
+                  <a href={p.tasks} target="_blank" rel="noreferrer" className="px-3 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-500">
+                    Tasks
+                  </a>
+                )}
+
                 {p.demo && !p.demo.endsWith(".mp4") && (
-                  <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-1 border border-indigo-400 text-indigo-400 rounded hover:bg-indigo-500 hover:text-white"
-                  >
+                  <a href={p.demo} target="_blank" rel="noreferrer" className="px-3 py-1 border border-indigo-400 text-indigo-400 rounded hover:bg-indigo-500 hover:text-white">
                     Demo
                   </a>
                 )}
-                {p.report && !p.repo && !p.demo && (
-                  <a
-                    href={p.report}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-1 border border-green-400 text-green-400 rounded hover:bg-green-500 hover:text-white"
-                  >
-                    Report
+
+                {p.view && (
+                  <a href={p.view} target="_blank" rel="noreferrer" className="px-3 py-1 border border-green-400 text-green-400 rounded hover:bg-green-500 hover:text-white">
+                    View
                   </a>
                 )}
               </div>
@@ -153,14 +142,7 @@ export default function Projects() {
         ))}
       </div>
 
-      <motion.img
-        src={divider}
-        alt="divider"
-        className="w-full max-w-2xl mx-auto mt-12"
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUp}
-      />
+      <motion.img src={divider} alt="divider" className="w-full max-w-2xl mx-auto mt-12" initial="hidden" whileInView="visible" variants={fadeInUp} />
     </section>
   );
 }
