@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
 import { CheckCircle } from "lucide-react";
 import divider from "../assets/divider.gif";
+import { FlaskConical } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
